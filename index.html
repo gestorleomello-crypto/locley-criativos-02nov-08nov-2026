@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Criativos &amp; Produtos · Locley</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Identidade clara, premium — fundo branco, verde sofisticado nos detalhes, Fraunces + Inter. Design comprometido com tema claro. */
+:root{
+  color-scheme:light;
+  --bg:#ffffff; --bg-alt:#f6f8f4; --surface:#ffffff; --ink:#1b2620; --muted:#64706a;
+  --line:#e6eae1; --line-2:#eef1ea; --pine:#1f5b3c; --pine-ink:#184a30; --sage:#8aae96; --sage-soft:#eef4ec;
+  --good:#1f7a4d; --warn:#9a6a16; --warn-bg:#f8efd9; --crit:#a8392a; --crit-bg:#f8e7e2;
+  --shadow:0 1px 2px rgba(27,42,34,.04),0 10px 30px rgba(27,42,34,.05);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:15.5px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--serif);font-weight:560;text-wrap:balance;line-height:1.1;margin:0;color:var(--pine-ink)}
+h2{font-size:clamp(1.55rem,3.4vw,2.2rem);letter-spacing:-.012em;margin-bottom:.1em}
+h3{font-size:1.12rem;font-weight:600;color:var(--ink)}
+p{margin:.5em 0}
+a{color:var(--pine);text-underline-offset:2px}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--pine)}
+.lede{color:var(--muted);font-size:1.03rem;max-width:64ch}
+.num{font-variant-numeric:tabular-nums}
+.sticky{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:11px}
+.sticky b{font-family:var(--serif);font-weight:600;color:var(--pine-ink)}
+.tag{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+section{padding-block:40px;border-top:1px solid var(--line)}
+section.alt{background:var(--bg-alt);border-top:1px solid var(--line)}
+.hero{padding-block:54px 34px}
+.hero h1{font-size:clamp(2.6rem,6.8vw,4.6rem);letter-spacing:-.022em;margin:.14em 0 .2em}
+.hero .sub{display:flex;gap:10px 22px;flex-wrap:wrap;color:var(--muted);font-size:.9rem;margin-top:18px}
+.hero .sub b{color:var(--ink)}
+.findings{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(246px,1fr));gap:15px;counter-reset:f}
+.findings li{counter-increment:f;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 18px 50px;position:relative;box-shadow:var(--shadow);font-size:.93rem}
+.findings li::before{content:counter(f);position:absolute;left:16px;top:17px;width:24px;height:24px;border-radius:50%;background:var(--sage-soft);color:var(--pine-ink);font-size:.78rem;font-weight:700;display:grid;place-items:center;font-family:var(--serif);border:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.subhead{display:flex;align-items:baseline;gap:10px;margin:26px 0 14px;flex-wrap:wrap}
+.subhead h3{font-family:var(--serif);font-size:1.3rem;color:var(--pine-ink)}
+.subhead .cap{font-size:.8rem;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:11px;min-width:0}
+.card .top{display:flex;justify-content:space-between;gap:8px;align-items:start}
+.card h3{font-size:1.04rem;line-height:1.2}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.c-active{background:var(--sage-soft);color:var(--good)}
+.c-paused{background:var(--warn-bg);color:var(--warn)}
+.c-crit{background:var(--crit-bg);color:var(--crit)}
+.c-new{background:#e7eef8;color:#2b5aa0}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:11px 8px;font-variant-numeric:tabular-nums;border-top:1px solid var(--line-2);padding-top:12px}
+.metrics div{min-width:0}
+.metrics .m{font-size:.64rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.metrics .x{font-size:1.02rem;font-weight:600;font-family:var(--serif);color:var(--ink)}
+.why{font-size:.88rem;color:var(--muted)}
+.why b{color:var(--ink)}
+.cardfoot{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;font-size:.82rem}
+.cardfoot a{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:8px;padding:5px 10px;text-decoration:none;color:var(--pine);background:var(--bg-alt)}
+.cardfoot .lowconf{color:var(--muted);font-size:.76rem;align-self:center}
+.pos{color:var(--good)}.neg{color:var(--crit)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{padding:11px 13px;text-align:right;border-bottom:1px solid var(--line-2);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal;min-width:180px}
+thead th{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;background:var(--bg-alt)}
+tbody tr:last-child td{border-bottom:0}
+.cls{font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.02em}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.q{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.q .item{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--sage);border-radius:0 12px 12px 0;padding:14px 16px;box-shadow:var(--shadow)}
+.q .item p{margin:.2em 0;font-size:.9rem}
+.q .item .ask{font-weight:650;color:var(--pine-ink)}
+.brief{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.brief .b{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);min-width:0}
+.brief .b .p{font-size:.68rem;font-weight:700;color:var(--pine);letter-spacing:.06em;text-transform:uppercase}
+.brief .b h3{margin:.3em 0 .1em}
+.muted{color:var(--muted)}
+.flag{background:var(--sage-soft);border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-size:.86rem;margin-top:16px}
+@media (max-width:720px){.cols,.q{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+
+<div class="sticky"><div class="wrap"><b><span>Locley</span> — Criativos & Produtos</b><span class="tag"><span>02/11</span> – <span>08/11/2026</span></span></div></div>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Para o time de conteúdo · Meta Ads + GA4 · Edição semanal</div>
+  <h1>Criativos & Produtos</h1>
+  <p class="lede"><span>Quais peças estão vendendo, por que merecem ser reproduzidas e o que vale gravar. Compras e receita dos anúncios são as atribuídas pela Meta; não são vendas confirmadas da loja. O Google Analytics da loja não informa a categoria dos produtos, por isso a leitura é peça a peça.</span></p>
+  <div class="sub">
+    <span>Conta <b><span>CA - Locler Plus Size</span></b></span><span>Janela <b><span>02/11</span>–<span>08/11/2026</span></b> (seg–dom)</span>
+    <span>Fontes <b>Meta Ads · GA4</b></span>
+  </div>
+</header>
+
+<section>
+  <div class="eyebrow">O essencial</div>
+  <h2>Principais descobertas</h2>
+  <p class="lede" style="margin-bottom:22px">Quatro leituras que orientam a produção de conteúdo desta semana.</p>
+  <ol class="findings" style="grid-template-columns:repeat(auto-fit,minmax(max(246px,clamp(calc(25% - 11.25px),calc((1029px - 100%) * 999),calc(50% - 7.5px))),1fr))">
+      <li><b>A ação promocional concentrou as compras atribuídas:</b> o primeiro vídeo da ação teve <span>22</span> compras e ROAS <span>7,8</span>.</li>
+      <li><b>Biquíni Mônica e Cortininha Perla se mantiveram por duas semanas</b> com vídeos de lançamento em ambiente externo.</li>
+      <li><b>No Google Analytics, a <span>BIQUINI PLUS SIZE MÔNICA  POA  AMARELO</span> liderou</b> com <span>R$2.280</span> em receita de item.</li>
+      <li><b>A <span>BIQUINI PLUS SIZE SUZY VERDE MAR</span> teve muita procura e pouca compra:</b> <span>1.352</span> visualizações e <span>0,3%</span> de compras por visualização.</li>
+  </ol>
+</section>
+
+<section class="alt">
+  <div class="eyebrow">O que reproduzir</div>
+  <h2>Melhores criativos dos últimos 7 dias</h2>
+  <p class="lede">Os anúncios que mais venderam na janela, identificados por ID real, com as métricas individuais que explicam por que merecem atenção. ROAS e CPA de combinação campanha×anúncio; eficiência exige amostra, por isso o volume de compras aparece em cada card.</p>
+  <div class="grid" style="margin-top:18px">
+    <div class="card"><div class="top"><h3><span>Leve 3 Pague 2 — explicando a ação (vídeo 1)</span></h3><span class="chip c-active">Ativo</span></div><div class="why">Vídeo explicando a ação promocional. <b>Maior volume de compras atribuídas da semana</b>, com ROAS maior que na semana anterior.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$765</span></div></div><div><div class="m">Compras</div><div class="x"><span>22</span></div></div><div><div class="m">ROAS</div><div class="x pos"><span>7,8</span></div></div><div><div class="m">Receita</div><div class="x"><span>R$5,9k</span></div></div><div><div class="m">CPA</div><div class="x"><span>R$35</span></div></div><div><div class="m">CTR link</div><div class="x"><span>2,60%</span></div></div><div><div class="m">CPC link</div><div class="x"><span>R$0,60</span></div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/DeZeuCiAFsd/" target="_blank" rel="noopener">▶ Post IG</a></div></div>
+    <div class="card"><div class="top"><h3><span>Catálogo — todos os produtos</span></h3><span class="chip c-active">Ativo</span></div><div class="why">Anúncio de catálogo para público novo. Segundo maior volume, sem mostrar o produto comprado.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$462</span></div></div><div><div class="m">Compras</div><div class="x"><span>15</span></div></div><div><div class="m">ROAS</div><div class="x pos"><span>6,6</span></div></div><div><div class="m">Receita</div><div class="x"><span>R$3,0k</span></div></div><div><div class="m">CPA</div><div class="x"><span>R$31</span></div></div><div><div class="m">CTR link</div><div class="x"><span>3,00%</span></div></div><div><div class="m">CPC link</div><div class="x"><span>R$0,52</span></div></div></div><div class="cardfoot"><a href="https://fb.me/2de8YViBdTkg5Oc" target="_blank" rel="noopener">Prévia do anúncio</a></div></div>
+    <div class="card"><div class="top"><h3><span>Biquíni Mônica — takes em ambiente externo</span></h3><span class="chip c-active">Ativo</span></div><div class="why">Vídeo de lançamento com a peça em ambiente externo. Volume e eficiência estáveis.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$530</span></div></div><div><div class="m">Compras</div><div class="x"><span>13</span></div></div><div><div class="m">ROAS</div><div class="x pos"><span>5,6</span></div></div><div><div class="m">Receita</div><div class="x"><span>R$3,0k</span></div></div><div><div class="m">CPA</div><div class="x"><span>R$41</span></div></div><div><div class="m">CTR link</div><div class="x"><span>2,49%</span></div></div><div><div class="m">CPC link</div><div class="x"><span>R$0,62</span></div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/DeZeRUYAR7Z/" target="_blank" rel="noopener">▶ Post IG</a></div></div>
+    <div class="card"><div class="top"><h3><span>Cortininha Perla Azul — takes em ambiente externo</span></h3><span class="chip c-active">Ativo</span></div><div class="why">Vídeo de lançamento. Mais compras que na semana anterior, com ROAS um pouco menor.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$454</span></div></div><div><div class="m">Compras</div><div class="x"><span>11</span></div></div><div><div class="m">ROAS</div><div class="x pos"><span>5,1</span></div></div><div><div class="m">Receita</div><div class="x"><span>R$2,3k</span></div></div><div><div class="m">CPA</div><div class="x"><span>R$41</span></div></div><div><div class="m">CTR link</div><div class="x"><span>1,99%</span></div></div><div><div class="m">CPC link</div><div class="x"><span>R$0,89</span></div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/DeZeVaJAZfu/" target="_blank" rel="noopener">▶ Post IG</a></div></div>
+    <div class="card"><div class="top"><h3><span>Leve 3 Pague 2 — explicando a ação (vídeo 2)</span></h3><span class="chip c-active">Ativo</span></div><div class="why">Segundo vídeo da ação. Volume relevante, mas eficiência bem menor que na semana anterior.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$441</span></div></div><div><div class="m">Compras</div><div class="x"><span>7</span></div></div><div><div class="m">ROAS</div><div class="x pos"><span>4,9</span></div></div><div><div class="m">Receita</div><div class="x"><span>R$2,2k</span></div></div><div><div class="m">CPA</div><div class="x"><span>R$63</span></div></div><div><div class="m">CTR link</div><div class="x"><span>1,71%</span></div></div><div><div class="m">CPC link</div><div class="x"><span>R$0,81</span></div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/DeZeuRZgm0E/" target="_blank" rel="noopener">▶ Post IG</a></div></div>
+    <div class="card"><div class="top"><h3><span>Biquíni Suzy Verde Mar — apresentando o produto</span></h3><span class="chip c-active">Ativo</span></div><div class="why">Vídeo de apresentação da peça. Menos compras e ROAS menor que na semana anterior, ainda dentro da faixa de consistência.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$389</span></div></div><div><div class="m">Compras</div><div class="x"><span>8</span></div></div><div><div class="m">ROAS</div><div class="x pos"><span>4,6</span></div></div><div><div class="m">Receita</div><div class="x"><span>R$1,8k</span></div></div><div><div class="m">CPA</div><div class="x"><span>R$49</span></div></div><div><div class="m">CTR link</div><div class="x"><span>2,99%</span></div></div><div><div class="m">CPC link</div><div class="x"><span>R$0,47</span></div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/De9xaSlAKRA/" target="_blank" rel="noopener">▶ Post IG</a></div></div>
+  </div>
+
+  <div class="subhead"><h3>Promissores</h3><span class="cap">Sinal positivo inicial — resultado promissor, ainda com poucas compras para confirmar consistência</span></div>
+  <div class="grid">
+    <div class="card"><div class="top"><h3><span>Biquíni Suzy Verde Mar — takes</span></h3><span class="chip c-new">Sinal inicial</span></div><div class="why">Investimento pequeno e poucas compras atribuídas: ROAS alto, ainda sem amostra para confirmar.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$9</span></div></div><div><div class="m">Compras</div><div class="x"><span>1</span></div></div><div><div class="m">ROAS</div><div class="x"><span>44,1</span>*</div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/De9xca0gSV2/" target="_blank" rel="noopener">▶ Post IG</a><span class="lowconf">*amostra baixa</span></div></div>
+    <div class="card"><div class="top"><h3><span>Short Aline — quer um short que veste bem</span></h3><span class="chip c-new">Sinal inicial</span></div><div class="why">Investimento pequeno e poucas compras atribuídas: ROAS alto, ainda sem amostra para confirmar.</div><div class="metrics"><div><div class="m">Invest.</div><div class="x"><span>R$94</span></div></div><div><div class="m">Compras</div><div class="x"><span>3</span></div></div><div><div class="m">ROAS</div><div class="x"><span>6,8</span>*</div></div></div><div class="cardfoot"><a href="https://www.instagram.com/p/DfaZ_ahgvZU/" target="_blank" rel="noopener">▶ Post IG</a><span class="lowconf">*amostra baixa</span></div></div>
+  </div>
+  <div class="flag">🔎 <b>Prévias.</b> "Post IG" abre o post real usado como criativo; "Prévia do anúncio" abre o preview do Meta. O conteúdo do vídeo costuma exigir login do Instagram/Meta.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Duas semanas</div>
+  <h2>Criativos que se destacam por mais tempo</h2>
+  <p class="lede">Comparamos <span>26/10</span>–<span>01/11</span> com <span>02/11</span>–<span>08/11</span>, sempre pelo <b>ID real</b> do anúncio. A regra de ouro é separar <b>eficiência</b> (ROAS/CPA, proporcionais) de <b>investimento</b>: menos compras com menos verba não é perda de força. Amostras pequenas aparecem sinalizadas.</p>
+
+  <div class="subhead"><h3>Consistentes</h3><span class="cap">bons resultados nas duas semanas — referências prioritárias</span></div>
+  <div class="grid">
+    <div class="card"><div class="top"><h3><span>Leve 3 Pague 2 — explicando a ação (vídeo 1)</span></h3><span class="chip c-active">Consistente</span></div><div class="why">Consistente nas duas semanas, com mais compras na segunda.</div><div class="metrics"><div><div class="m">Compras S1→S2</div><div class="x"><span>13</span> → <span>22</span></div></div><div><div class="m">ROAS S1→S2</div><div class="x pos"><span>5,7</span> → <span>7,8</span></div></div><div><div class="m">CPA S1→S2</div><div class="x"><span>R$53</span> → <span>R$35</span></div></div></div></div>
+    <div class="card"><div class="top"><h3><span>Catálogo — todos os produtos</span></h3><span class="chip c-active">Consistente</span></div><div class="why">Mais compras e ROAS maior que na semana anterior.</div><div class="metrics"><div><div class="m">Compras S1→S2</div><div class="x"><span>9</span> → <span>15</span></div></div><div><div class="m">ROAS S1→S2</div><div class="x pos"><span>3,6</span> → <span>6,6</span></div></div><div><div class="m">CPA S1→S2</div><div class="x"><span>R$47</span> → <span>R$31</span></div></div></div></div>
+    <div class="card"><div class="top"><h3><span>Biquíni Mônica — takes em ambiente externo</span></h3><span class="chip c-active">Consistente</span></div><div class="why">Consistente nas duas semanas.</div><div class="metrics"><div><div class="m">Compras S1→S2</div><div class="x"><span>14</span> → <span>13</span></div></div><div><div class="m">ROAS S1→S2</div><div class="x pos"><span>5,0</span> → <span>5,6</span></div></div><div><div class="m">CPA S1→S2</div><div class="x"><span>R$43</span> → <span>R$41</span></div></div></div></div>
+    <div class="card"><div class="top"><h3><span>Cortininha Perla Azul — takes em ambiente externo</span></h3><span class="chip c-active">Consistente</span></div><div class="why">Consistente, com mais entrega na segunda semana.</div><div class="metrics"><div><div class="m">Compras S1→S2</div><div class="x"><span>7</span> → <span>11</span></div></div><div><div class="m">ROAS S1→S2</div><div class="x pos"><span>6,2</span> → <span>5,1</span></div></div><div><div class="m">CPA S1→S2</div><div class="x"><span>R$47</span> → <span>R$41</span></div></div></div></div>
+    <div class="card"><div class="top"><h3><span>Biquíni Suzy Verde Mar — apresentando o produto</span></h3><span class="chip c-active">Consistente</span></div><div class="why">Consistente, com menos compras e ROAS menor na segunda semana.</div><div class="metrics"><div><div class="m">Compras S1→S2</div><div class="x"><span>18</span> → <span>8</span></div></div><div><div class="m">ROAS S1→S2</div><div class="x pos"><span>6,4</span> → <span>4,6</span></div></div><div><div class="m">CPA S1→S2</div><div class="x"><span>R$42</span> → <span>R$49</span></div></div></div></div>
+    <div class="card"><div class="top"><h3><span>Leve 3 Pague 2 — explicando a ação (vídeo 3)</span></h3><span class="chip c-active">Consistente</span></div><div class="why">Consistente nas duas semanas, com mais compras na segunda.</div><div class="metrics"><div><div class="m">Compras S1→S2</div><div class="x"><span>5</span> → <span>7</span></div></div><div><div class="m">ROAS S1→S2</div><div class="x pos"><span>5,1</span> → <span>5,8</span></div></div><div><div class="m">CPA S1→S2</div><div class="x"><span>R$56</span> → <span>R$41</span></div></div></div></div>
+  </div>
+
+  <div class="subhead"><h3>Novos destaques da semana</h3><span class="cap">passaram a performar agora — recuperação, mais entrega ou estreia</span></div>
+  <div class="grid">
+    <div class="card"><div class="top"><h3><span>Cortininha Perla — experimentando</span></h3><span class="chip c-new">Novo destaque</span></div><div class="why">Passou a receber entrega relevante nesta semana.</div><div class="metrics"><div><div class="m">Compras S1→S2</div><div class="x"><span>0</span> → <span>6</span></div></div><div><div class="m">ROAS S1→S2</div><div class="x pos"><span>—</span> → <span>7,0</span></div></div><div><div class="m">CPA S1→S2</div><div class="x"><span>—</span> → <span>R$31</span></div></div></div></div>
+    <div class="card"><div class="top"><h3><span>Short Aline — queridinho por um motivo</span></h3><span class="chip c-new">Novo destaque</span></div><div class="why">Passou a responder nesta semana, sem entrega relevante na anterior.</div><div class="metrics"><div><div class="m">Compras S1→S2</div><div class="x"><span>0</span> → <span>6</span></div></div><div><div class="m">ROAS S1→S2</div><div class="x pos"><span>—</span> → <span>8,7</span></div></div><div><div class="m">CPA S1→S2</div><div class="x"><span>—</span> → <span>R$17</span></div></div></div></div>
+  </div>
+
+  <div class="subhead"><h3>Em observação e saídas do topo</h3><span class="cap">mudanças de entrega ou de eficiência — mencionadas para explicar o ranking</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Criativo</th><th>Produto</th><th>S1 compras</th><th>S1 ROAS</th><th>S2 compras</th><th>S2 ROAS</th><th>Leitura</th></tr></thead>
+    <tbody>
+      <tr><td><span>Leve 3 Pague 2 — explicando a ação (vídeo 1)</span></td><td style="text-align:left;white-space:normal"><span>Ação promocional (vários produtos)</span></td><td><span>13</span></td><td><span>5,7</span></td><td><span>22</span></td><td><span>7,8</span></td><td style="text-align:left;white-space:normal"><span>Consistente</span></td></tr>
+      <tr><td><span>Catálogo — todos os produtos</span></td><td style="text-align:left;white-space:normal"><span>Catálogo (vários produtos)</span></td><td><span>9</span></td><td><span>3,6</span></td><td><span>15</span></td><td><span>6,6</span></td><td style="text-align:left;white-space:normal"><span>Consistente</span></td></tr>
+      <tr><td><span>Biquíni Mônica — takes em ambiente externo</span></td><td style="text-align:left;white-space:normal"><span>Biquíni Mônica</span></td><td><span>14</span></td><td><span>5,0</span></td><td><span>13</span></td><td><span>5,6</span></td><td style="text-align:left;white-space:normal"><span>Consistente</span></td></tr>
+      <tr><td><span>Cortininha Perla Azul — takes em ambiente externo</span></td><td style="text-align:left;white-space:normal"><span>Cortininha Perla</span></td><td><span>7</span></td><td><span>6,2</span></td><td><span>11</span></td><td><span>5,1</span></td><td style="text-align:left;white-space:normal"><span>Consistente</span></td></tr>
+      <tr><td><span>Leve 3 Pague 2 — explicando a ação (vídeo 2)</span></td><td style="text-align:left;white-space:normal"><span>Ação promocional (vários produtos)</span></td><td><span>9</span></td><td><span>11,2</span></td><td><span>7</span></td><td><span>4,9</span></td><td style="text-align:left;white-space:normal"><span>Perdeu eficiência</span> — ROAS caiu</td></tr>
+      <tr><td><span>Biquíni Suzy Verde Mar — apresentando o produto</span></td><td style="text-align:left;white-space:normal"><span>Biquíni Suzy</span></td><td><span>18</span></td><td><span>6,4</span></td><td><span>8</span></td><td><span>4,6</span></td><td style="text-align:left;white-space:normal"><span>Consistente</span></td></tr>
+      <tr><td><span>Leve 3 Pague 2 — explicando a ação (vídeo 3)</span></td><td style="text-align:left;white-space:normal"><span>Ação promocional (vários produtos)</span></td><td><span>5</span></td><td><span>5,1</span></td><td><span>7</span></td><td><span>5,8</span></td><td style="text-align:left;white-space:normal"><span>Consistente</span></td></tr>
+      <tr><td><span>Cortininha Perla — experimentando</span></td><td style="text-align:left;white-space:normal"><span>Cortininha Perla</span></td><td><span>0</span></td><td><span>—</span></td><td><span>6</span></td><td><span>7,0</span></td><td style="text-align:left;white-space:normal"><span>Novo destaque</span></td></tr>
+      <tr><td><span>Cortininha Simone — apresentando a peça</span></td><td style="text-align:left;white-space:normal"><span>Cortininha Simone</span></td><td><span>6</span></td><td><span>6,9</span></td><td><span>4</span></td><td><span>3,6</span></td><td style="text-align:left;white-space:normal"><span>Perdeu eficiência</span> — ROAS caiu</td></tr>
+      <tr><td><span>Short Aline — queridinho por um motivo</span></td><td style="text-align:left;white-space:normal"><span>Short Godê Aline</span></td><td><span>0</span></td><td><span>—</span></td><td><span>6</span></td><td><span>8,7</span></td><td style="text-align:left;white-space:normal"><span>Novo destaque</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="why" style="margin-top:12px"><span>Comparação pelo ID real de cada anúncio. <b>Perdeu eficiência</b> quer dizer ROAS proporcional menor; os dados não indicam a causa.</span></p>
+</section>
+
+<section class="alt">
+  <div class="eyebrow">Vitrine</div>
+  <h2>Produtos que mais venderam</h2>
+  <p class="lede">Métricas de item do GA4 na janela (visualizações, carrinhos, unidades, receita). Não usamos "sessões por produto": o agrupamento repete contagens entre variantes — lacuna declarada.</p>
+  <div style="margin-top:16px">
+  <div class="tablewrap"><table>
+    <thead><tr><th>Produto</th><th>Receita</th><th>Unid.</th><th>Views</th><th>ATC</th><th>Compras por visualização</th></tr></thead>
+    <tbody>
+      <tr><td><span>BIQUINI PLUS SIZE MÔNICA  POA  AMARELO</span></td><td><span>R$2.280</span></td><td><span>15</span></td><td><span>531</span></td><td><span>103</span></td><td><span>2,8%</span></td></tr>
+      <tr><td><span>BIQUINI PLUS SIZE SUZY AZUL MARINHO</span></td><td><span>R$1.689</span></td><td><span>11</span></td><td><span>556</span></td><td><span>81</span></td><td><span>2,0%</span></td></tr>
+      <tr><td><span>BIQUINI PLUS SIZE SUZY MARROM</span></td><td><span>R$1.689</span></td><td><span>11</span></td><td><span>373</span></td><td><span>71</span></td><td><span>3,0%</span></td></tr>
+      <tr><td><span>CORTININHA PLUS SIZE PERLA AZUL BB</span></td><td><span>R$1.560</span></td><td><span>12</span></td><td><span>1.141</span></td><td><span>51</span></td><td><span>1,1%</span></td></tr>
+      <tr><td><span>CORTININHA PLUS SIZE PERLA MARROM</span></td><td><span>R$1.430</span></td><td><span>11</span></td><td><span>299</span></td><td><span>62</span></td><td><span>3,7%</span></td></tr>
+      <tr><td><span>BIQUINI PLUS SIZE SUZY PRETO</span></td><td><span>R$1.228</span></td><td><span>8</span></td><td><span>381</span></td><td><span>76</span></td><td><span>2,1%</span></td></tr>
+      <tr><td><span>BIQUINI PLUS SIZE VALENTINA AZUL</span></td><td><span>R$1.216</span></td><td><span>8</span></td><td><span>208</span></td><td><span>29</span></td><td><span>3,9%</span></td></tr>
+      <tr><td><span>CORTININHA PLUS SIZE  SIMONE POA  AMARELO</span></td><td><span>R$1.096</span></td><td><span>8</span></td><td><span>630</span></td><td><span>95</span></td><td><span>1,3%</span></td></tr>
+      <tr><td><span>CORTININHA PLUS SIZE PERLA ROSA BB</span></td><td><span>R$1.040</span></td><td><span>8</span></td><td><span>305</span></td><td><span>52</span></td><td><span>2,6%</span></td></tr>
+      <tr><td><span>SHORT PLUS SIZE GODÊ ALINE MARROM</span></td><td><span>R$936</span></td><td><span>13</span></td><td><span>224</span></td><td><span>104</span></td><td><span>5,8%</span></td></tr>
+    </tbody>
+  </table></div>
+  </div>
+  <div class="subhead"><h3>Oportunidades nos produtos</h3><span class="cap">muito interesse × pouca exposição</span></div>
+  <div class="cols">
+    <div style="min-width:0">
+  <div class="tablewrap"><table>
+    <thead><tr><th>Muito interesse, pouca compra</th><th>Views</th><th>Compras por visualização</th><th>Unid.</th></tr></thead>
+    <tbody>
+      <tr><td><span>BIQUINI PLUS SIZE SUZY VERDE MAR</span></td><td><span>1.352</span></td><td><span>0,3%</span></td><td><span>4</span></td></tr>
+    </tbody>
+  </table></div>
+      <p class="why"><span>Peça com <span>241</span> visualizações ou mais e conversão abaixo da loja (<span>1,25%</span>) além do que o acaso explica: vale olhar a página e o conteúdo antes de mais mídia.</span></p>
+    </div>
+    <div style="min-width:0">
+  <div class="tablewrap"><table>
+    <thead><tr><th>Pouca exposição, boa resposta</th><th>Views</th><th>Compras por visualização</th><th>Unid.</th></tr></thead>
+    <tbody>
+      <tr><td><span>SHORT PLUS SIZE GODÊ ALINE MARROM</span></td><td><span>224</span></td><td><span>5,8%</span></td><td><span>13</span></td></tr>
+    </tbody>
+  </table></div>
+      <p class="why"><span>Peça com menos de <span>241</span> visualizações e conversão acima da loja (<span>1,25%</span>) além do que o acaso explica. Na validação do método, peças assim mantiveram a resposta na semana seguinte com a mesma frequência de peças parecidas não selecionadas: é hipótese para testar com conteúdo, não conclusão.</span></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">A conexão</div>
+  <h2>Cruzamento entre criativos e produtos</h2>
+  <div class="q" style="margin-top:16px">
+    <div class="item"><p class="ask">Anunciamos o que mais vende?</p><p><span>Sim para Biquíni Mônica, Cortininha Perla e Biquíni Suzy, que têm criativos ativos e unidades registradas no Google Analytics. O catálogo e a ação promocional também concentram compras atribuídas sem indicar a peça.</span></p></div>
+    <div class="item"><p class="ask">O que vende no site e recebe pouca mídia?</p><p><span><span>SHORT PLUS SIZE GODÊ ALINE MARROM</span> registrou <span>13</span> unidades no Google Analytics com <span>224</span> visualizações; o Short Aline tem um criativo que passou a responder nesta semana.</span></p></div>
+    <div class="item"><p class="ask">Que formato dá para transferir?</p><p><span>Vídeos de lançamento com takes da peça em ambiente externo e o vídeo explicando a ação promocional se mantiveram por duas semanas.</span></p></div>
+    <div class="item"><p class="ask">Onde ampliar o repertório?</p><p><span>As cores do Biquíni Suzy e da Cortininha Perla têm unidades registradas no Google Analytics; novas cores das peças que já respondem são caminho de repertório.</span></p></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="eyebrow">O que priorizar</div>
+  <h2>Direcionamento de novos criativos</h2>
+  <p class="lede">O que vale a pena gravar e por quê, com base nos dados desta semana. Como produzir e apresentar cada peça é decisão do time da <span>Locley</span>. <span>Priorizamos referências que se mantiveram por duas semanas.</span></p>
+  <div class="brief" style="margin-top:18px">
+    <div class="b"><div class="p">Prioridade alta</div><h3><span>BIQUINI PLUS SIZE MÔNICA  POA  AMARELO</span></h3><p class="why"><b>Por quê:</b> primeira do Google Analytics em receita de item (<span>R$2.280</span>), com <span>2,8%</span> de compras por visualização, acima da loja (<span>1,25%</span>) além do que o acaso explica, e criativo consistente nas duas semanas.</p><p class="why"><b>Oportunidade:</b> ampliar variações e cores da peça com o mesmo formato.</p><p class="why"><b>Referência:</b> o vídeo de lançamento do Biquíni Mônica em ambiente externo.</p></div>
+    <div class="b"><div class="p">Boa resposta no Google Analytics, pouca vitrine</div><h3><span>SHORT PLUS SIZE GODÊ ALINE MARROM</span></h3><p class="why"><b>Por quê:</b> <span>13</span> unidades com <span>224</span> visualizações (<span>5,8%</span> de compras por visualização).</p><p class="why"><b>Oportunidade:</b> sinal fraco de boa resposta com pouca exposição; vale testar com conteúdo antes de ampliar.</p><p class="why"><b>Referência:</b> o vídeo do Short Aline que passou a responder nesta semana.</p></div>
+    <div class="b"><div class="p">Demanda a destravar</div><h3><span>BIQUINI PLUS SIZE SUZY VERDE MAR</span></h3><p class="why"><b>Por quê:</b> <span>1.352</span> visualizações e <span>0,3%</span> de compras por visualização.</p><p class="why"><b>Oportunidade:</b> existe procura; conteúdo que mostre caimento e detalhes pode ajudar a decidir a compra.</p><p class="why"><b>Referência:</b> o vídeo de apresentação do Biquíni Suzy Verde Mar.</p></div>
+  </div>
+</section>
+
+<div style="padding-block:40px 24px;border-top:1px solid var(--line);text-align:center">
+  <div class="eyebrow" style="color:var(--sage)"><span>Locley</span> · Criativos &amp; Produtos</div>
+  <p class="muted" style="font-size:.84rem;margin-top:6px">Edição semanal · <span>02/11</span>–<span>08/11/2026</span></p>
+</div>
+
+</div>
+
+</body>
+</html>
